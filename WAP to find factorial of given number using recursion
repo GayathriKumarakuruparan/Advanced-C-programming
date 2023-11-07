@@ -1,0 +1,36 @@
+/*
+Name: Gayathri.k
+Date: 18/10/2023
+Description: WAP to find factorial of given number using recursion
+Sample Input:Enter the value of N : 7
+Sample Output: Result :Factorial of the given number is 5040
+*/
+#include <stdio.h>
+
+int main()
+{
+    static int num,count=0;
+    static int fact = 1;
+     if(count==0)//to avoid the continue scanf(reading)process
+     {
+    printf("Enter the value of N : ");
+    scanf("%d",&num);
+    count=1;
+     }
+    if(num >=0)//to avoid the negative fact
+    {
+    if(num==0)//to avoid the result as 0
+    {
+        printf("Factorial of the given number is %d",fact);
+    }
+    else//the fact logic is begins
+    {
+        fact=fact*num--;//decrement to get next next element as 4*3*2*1
+        main();//recursive func
+    }
+    }
+    else//if it is negative
+    printf("Invalid Input");
+    
+  
+}
