@@ -1,0 +1,73 @@
+/*
+Name: Gayathri.k
+Date: 18/10/2023
+Description: Print the values in sorted order without modifying or copying array
+Sample Input:Enter the size : 7
+            Enter 7 elements 
+            1 3 2 5 4 7 6
+Sample Output: Result :After sorting: 1 2 3 4 5 6 7
+                       Original array values 1 3 2 5 4 7 6
+*/
+#include <stdio.h>
+
+void print_sort(int arr[], int size){
+    int i,j;
+    int small,large=arr[0];//to allocate the first array element in some var to check the small and large variable
+    int second=arr[1];// to allocate the seconf element 
+    int sec_small;//to store the second small variable
+    printf("After sorting ");
+    //loop to find small and large element without using sort
+    for(j=0;j<size;j++){
+        if(arr[j]<small){
+            second=small;
+            small=arr[j];
+        }
+        if(arr[j]>large){
+            second=large;
+            large=arr[j];
+        }
+    }
+    //printing the small element to get the 1st element of output
+     printf("%d ",small);
+     //loop to get remaining element
+    for(int j=0;j<size-2;j++)
+    {
+        sec_small=large;//to use in condition //after the inner loop finished again the sec small value update as large value
+        //loop to check whether the value is less than large value and greater than small value
+        for(i=0;i<size;i++)
+        {
+        if(arr[i]>small&&arr[i]<sec_small)//if the value is less than large value and greater than small value
+        {
+            sec_small=arr[i];//store the value in second small element
+        }
+        }
+        small=sec_small;//change the small value to current small value
+        printf("%d ",sec_small);//print it not store
+    }
+   if(small!=large){//if the small and large is not equal(i.e i/p as 0 0 )
+   printf("%d \n",large);//then print the large number to finish the output
+   }
+    printf("Original array values ");//to show that the original array is not changed
+    for(i=0;i<size;i++){
+        printf("%d ",arr[i]);
+    }
+   
+}
+
+int main()
+{
+    int size, iter;
+    
+    printf("Enter the size of the array : ");
+    scanf("%d", &size);
+    
+    int arr[size];
+    
+    printf("Enter the elements\n");
+    for (iter = 0; iter < size; iter++)
+    {
+        scanf("%d", &arr[iter]);
+    }
+    
+    print_sort(arr, size);
+}
