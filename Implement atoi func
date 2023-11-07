@@ -1,0 +1,52 @@
+/*
+Name: Gayathri.k
+Date: 30/10/2023
+Description: implement atoi func
+Sample Input: enter the string 123
+Sample Output:123
+*/
+#include <stdio.h>
+int my_atoi(const char *str){
+    int i=0,res=0,flag=0;
+     if(str[i]=='+'){//if the string contain +ve sign
+     i=1;//start the string from 1
+       while((str[i]>='0')&&(str[i]<='9'))//check whether the string in integer or not
+       {
+        int num = str[i]-48;//to get int value in %d(i.e 1->49= 49-48=1)
+        res=(res*10)+num;//to store all the int in one var
+        i++;//inc for while loop
+       }
+     }
+    else if(str[i]=='-'){
+           i=1;//start the string from 1
+       while((str[i]>='0')&&(str[i]<='9'))//check whether the string in integer or not
+       {
+        int num = str[i]-48;//to get int value in %d(i.e 1->49= 49-48=1)
+        res=(res*10)+num;//to store all the int in one var
+        i++;//inc for while loop
+        flag=1;//to indicate it is negative
+       }
+    }
+    else{//if the input contain no sign then it start from 0 itself
+        while((str[i]>='0')&&(str[i]<='9'))//check whether the string in integer or not
+       {
+        int num = str[i]-48;//to get int value in %d(i.e 1->49= 49-48=1)
+        res=(res*10)+num;//to store all the int in one var
+        i++;//inc for while loop
+       }
+     }
+    if(flag==1)
+    return res*-1;//if it is negative
+    else
+    return res;
+}
+
+int main()
+{
+    char str[20];
+    
+    printf("Enter a numeric string : ");
+    scanf("%s", str);
+    
+    printf("String to integer is %d\n", my_atoi(str));
+}
