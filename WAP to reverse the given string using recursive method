@@ -1,0 +1,39 @@
+/*
+Name: Gayathri.k
+Date: 26/10/2023
+Description: WAP to reverse the given string using recursive method
+Sample Input: hello 
+Sample Output:Reversed string is olleh.
+*/
+#include <stdio.h>
+//function for return length of given string
+int my_strlen(char str[]){
+    int j=0,count=0;
+    while(str[j]!='\0'){//loop for get the char until it reach null
+        count++;//counting to get the length of string
+        j++;//for getting next next char
+    }
+    return count-1;//return the count value
+}
+//func to reverse the strig
+void reverse_recursive(char str[], int ind, int len){
+   static int i=0;
+          //swapping the char one by one
+            char temp=str[i];
+            str[i]=str[len-i];
+            str[len-i]=temp;
+            i++;
+        
+    if(ind<len/2){//cond used to end the func call
+      reverse_recursive(str,ind+1,len);//recursive func with inc the index value
+    }
+}
+int main()
+{
+    char str[30];
+   // printf("Enter any string : ");
+    scanf("%[^\n]", str);
+    int length=my_strlen(str);
+    reverse_recursive(str,0,length);
+    printf("Reversed string is %s\n", str);
+}
