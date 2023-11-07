@@ -1,0 +1,33 @@
+/*
+Name: Gayathri.k
+Date: 19/10/2023
+Description: WAP to generate negative fibbonacci numbers using recursion
+Sample Input:Enter a number: -8
+Sample Output: Result :0, 1, -1, 2, -3, 5, -8
+*/
+#include <stdio.h>
+
+void negative_fibonacci(int limit, int first, int second, int next){
+    next=first-second;
+    if(next >= limit && next <= -limit){//check whether it is greater and limited with the given number
+        printf("%d ",next);//to first print the 1st three numbers eg:0 1 -1
+        first=second;//swaping to get next numbers eg:0=1, 1=-1, -1=1-(-1)=2
+        second=next;//1=-1
+        next=first-second;//-1=1-(-1), 2
+        negative_fibonacci(limit,first,second,next);//recursion func
+    }
+}
+
+int main()
+{
+    int limit;
+    
+    printf("Enter the limit : ");
+    scanf("%d", &limit);
+    if(limit<=0){//check iif the number is negative
+    printf("%d %d ",0,1);//to print the first ans second number constantly eg:0 1
+    negative_fibonacci(limit, 0, 1, 0);
+    }
+    else
+    printf("Invalid Input");
+}
