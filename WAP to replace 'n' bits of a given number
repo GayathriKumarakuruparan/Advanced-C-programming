@@ -1,0 +1,33 @@
+# Advanced-C-programming
+/*
+Name: Gayathri.k
+Date: 2/10/2023
+Description:WAP to replace 'n' bits of a given number
+Sample Input:Enter the number: 10
+             Enter number of bits: 3
+             Enter the value: 12
+Sample Output: Result = 2
+*/
+#include <stdio.h>
+
+int replace_nbits(int num, int n, int val)
+{
+int mask=1;
+int value=~((mask<<n)-1);//to clear the last n numbers
+int result=num&value;//to get the value of cleared num
+int res= result|val;//using OR logic to get addition of the updated value
+return res;
+}
+
+
+int main()
+{
+    int num, n, val, res = 0;
+    
+    printf("Enter num, n and val:");
+    scanf("%d%d%d", &num, &n, &val);
+    
+    res = replace_nbits(num, n, val);
+    
+    printf("Result = %d\n", res);
+}
