@@ -1,0 +1,38 @@
+/*
+Name: Gayathri.k
+Date: 6/10/2023
+Description:WAP to put the (b-a+1) lsb’s of num into val[b:a]
+Sample Input:Enter the value of 'num' : 11
+             Enter the value of 'a' : 3
+             Enter the value of 'b' : 5
+             Enter the value of 'val': 174
+Sample Output: Result : 158
+*/#include <stdio.h>
+
+int replace_nbits_from_pos(int  num, int a, int b, int val)
+{
+    if(b>a){//the a value must be greater than a to avoid -ve number
+        int n=(b-a)+1;
+        int mask=(1<<n)-1;//for mask value to get the bit
+        int value=num&mask;//to get num value
+
+        int clear_mask=~(mask<<a);//for mask value to clearbit
+        int value2=val&clear_mask;//to get the val
+        int value1=value<<a;//for get num bit that to merge
+        int res=value1|value2;//step to merge
+        return res;//return result
+    }
+    
+}
+
+int main()
+{
+    int num, a, b, val, res = 0;
+    
+    printf("Enter num, a, b, and val:");
+    scanf("%d%d%d%d", &num, &a, &b, &val);
+    
+    res = replace_nbits_from_pos(num, a, b, val);
+    
+    printf("Result = %d\n", res);
+}
