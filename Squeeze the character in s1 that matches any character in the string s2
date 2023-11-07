@@ -1,0 +1,54 @@
+/*
+Name: Gayathri.k
+Date: 27/10/2023
+Description: Squeeze the character in s1 that matches any character in the string s2
+Sample Input: welcome
+              home
+Sample Output:wlc
+*/
+#include <stdio.h>
+//func for getting len of str1
+int my_strlen(char *str1){
+    int i=0,count=0;
+    while(str1[i]!='\0'){//to get the character till the end
+        count++;
+        i++;
+    }
+    return count;//return count for length
+}
+void squeeze(char *str1, char *str2,int len){
+    int i=0,j,k;
+    for(i=0;i<len;i++)//to compare the characters of str 1 and str2 continuesly
+    {
+    for(j=0;j<len;j++)//same as above
+    {
+        if(str2[i]==str1[j])//now comparing the str2 char with str1 one by one
+        {
+            k=j;//if it is same the we have to swap all the char from the current str1 value
+            //loop for swapping 
+            while(str1[k]!='\0')
+            {
+                str1[k]=str1[k+1];
+                k++;//inc k for while loop increment
+            }
+        }
+    }
+    }
+}
+
+int main()
+{
+    char str1[30], str2[30];
+    
+    printf("Enter string1:");
+    scanf("%[^\n]", str1);
+    int len=my_strlen(str1);
+
+    printf("Enter string2:");
+    scanf(" %[^\n]", str2);
+    
+    squeeze(str1, str2, len);
+    
+    printf("After squeeze s1 : %s\n", str1);
+    
+}
