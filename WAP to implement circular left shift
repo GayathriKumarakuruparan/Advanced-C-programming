@@ -1,0 +1,46 @@
+/*
+Name: Gayathri.k
+Date: 5/10/2023
+Description: to implement circular left shift
+Sample Input:Enter num: 12
+             Enter n : 3
+Sample Output: Result in Binary: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0
+*/
+#include <stdio.h>
+
+int circular_left(int num, int n)
+{
+    int value=num<<n;//the n bit the cleared
+    int position=31-n;//for the position to shift
+    int mask=((1<<n)-1)<<position;//to get the mask value
+    int get_value=num&mask;//for get value
+    unsigned value2=get_value>>position;//to get the get value in lsb
+    unsigned ret=value|value2;//merge the clearbit and getbit
+    for(int i=31;i>=0;i--){//loop for print binary value
+        if(ret&(1<<i))//if it is set value print 1
+        printf("1 ");
+        else//if it is not a set value print 0
+        printf("0 ");
+    }
+}
+int print_bits(int ret){
+   
+    return ret;
+    
+}
+
+int main()
+{
+    int num, n, ret;
+    
+    //printf("Enter the num:");
+    scanf("%d", &num);
+    
+    //printf("Enter n:");
+    scanf("%d", &n);
+    printf("Result in Binary: ");
+    ret = circular_left(num, n);
+   
+    
+    print_bits(ret);
+}
