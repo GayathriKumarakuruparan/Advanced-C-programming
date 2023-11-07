@@ -1,0 +1,44 @@
+/*
+Name: Gayathri.k
+Date: 24/10/2023
+Description: WAP to check given string is Pangram or not
+Sample Input: The quick brown fox jumps over the lazy god
+Sample Output: the entered string is a pangram string
+*/
+#include <stdio.h>
+
+int pangram(char str[]){
+    int count=0,i=0,k,arr[26];//there is an array to store the counting result to calc whether the string contains is 26 alphabets or not
+    while(str[i]!='\0'){//to get the next next string characters until the null
+        if(str[i]>='a'&&str[i]<='z'){//to check the lower case
+            char ch=str[i];//store the string character in another char ch
+            int j=ch-97;//(i.e if 'e' is given means the 101-97=4 so in array 0 the value should be 1)
+            arr[j]=1;//the number of array stores 1
+        }
+        if(str[i]>='A'&&str[i]<='Z'){//same as above statement but for upper case
+            char ch=str[i];
+            int j=ch-65;
+            arr[j]=1;
+        }
+        i++;
+    }
+    for(k=0;k<=25;k++){//this loop is to check whether the array contain all the 26 element as 1 or not
+        if(arr[k]==1){//if each elements are 1 ,then it contain 1 in that indes
+            count++;
+        }//if not then it will assume as 0 automatically
+    }
+    return count;
+}
+
+int main()
+{
+    int ret=0;//to store the result of calling func
+    char str[100];//string to store
+    printf("Enter the string : ");
+    scanf("%[^\n]",str);//to store all the characters
+    ret=pangram(str);
+    if(ret==26)//if the result is 26 then it is pangram(i.e it contains all the alphapets)
+        printf("The Entered String is a Pangram String");
+    else//if not then it's not a pangrams
+    printf("The Entered String is not a Pangram String");
+}
