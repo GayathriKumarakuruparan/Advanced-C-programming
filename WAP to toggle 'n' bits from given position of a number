@@ -1,0 +1,40 @@
+/*
+Name: Gayathri.k
+Date: 3/10/2023
+Description: WAP to toggle 'n' bits from given position of a number
+Sample Input:Enter the number: 10
+             Enter number of bits: 3
+             Enter the pos: 5
+Sample Output: Result = 50
+*/
+#include <stdio.h>
+
+int toggle_nbits_from_pos(int num, int n, int pos)
+{
+    int mask=1;
+    int value=(mask<<n)-1;
+    int position=pos-1;//to get the particular bit from the position given
+    int position1=pos-2;//to get the particular bit from the position given
+    if(position1!=0){//if the pos1 value not = to 0
+    int poss=value<<position1;//left shifting the value to get the 'n' bits from the position
+    int res=num^poss;//using ^ operator to get the toggled result
+    return res;//returning the result to the main function
+    }
+    else{//if the pos1 is = to 0 
+    int poss=value<<position;//left shifting the value to get the 'n' bits from the position
+    int res=num^poss;//using ^ operator to get the toggled result
+    return res;//returning the result to the main function
+    }
+}
+
+int main()
+{
+    int num, n, pos, res = 0;
+    
+    printf("Enter num, n and val:");
+    scanf("%d%d%d", &num, &n, &pos);
+    
+    res = toggle_nbits_from_pos(num, n, pos);
+    
+    printf("Result = %d\n", res);
+}
