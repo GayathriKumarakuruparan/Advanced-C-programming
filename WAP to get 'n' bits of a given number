@@ -1,0 +1,31 @@
+# Advanced-C-programming
+/*
+Name: Gayathri.k
+Date: 2/10/2023
+Description: WAP to get 'n' bits of a given number
+Sample Input:Enter the number: 10
+             Enter number of bits: 3
+Sample Output: Result = 2
+*/
+#include <stdio.h>
+
+int get_nbits(int num, int n)
+{
+int mask=1;
+int value=(mask<<n)-1;//to make the number to get the last n numbers
+int res=num&value;//result variable that have to return to main function
+return res;
+}
+
+
+int main()
+{
+    int num, n, res = 0;
+    
+    printf("Enter num and n:");
+    scanf("%d%d", &num, &n);
+    
+    res = get_nbits(num, n);
+    
+    printf("Result = %d\n", res);
+}
