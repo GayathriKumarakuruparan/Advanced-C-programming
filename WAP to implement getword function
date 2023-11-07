@@ -1,0 +1,34 @@
+/*
+Name: Gayathri.k
+Date: 24/10/2023
+Description: WAP to implement getword function
+Sample Input: hello hi
+Sample Output:You entered hello and the length is 5
+*/
+#include <stdio.h>
+#include<string.h>
+int getword(char str[]){
+    int count=0,i=0;//to get the character count
+
+    while((str[i]!=' ')&&(str[i]!='\0')){//while loop to get the character count until it reach space or null
+        if((str[i]!=' ')&&(str[i]!='\0')){//to increment the count for each looping
+      count++;//inc of count to find character count
+        }
+     i++;//to get next character in string
+    }
+    strtok(str," ");//to get the character before space using string token
+    return count;
+}
+
+int main()
+{
+        int len = 0;
+	    char str[100];
+
+		printf("Enter the string : ");
+		scanf(" %[^\n]", str);//to get all the string that print
+
+		len = getword(str);
+
+        printf("You entered %s and the length is %d\n", str, len);
+}
