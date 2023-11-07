@@ -1,0 +1,45 @@
+/*
+Name: Gayathri.k
+Date: 17/10/203
+Description: WAP to find 2nd largest element in an array
+Sample Input: Enter the size of the Array : 5
+Enter the elements into the array: 5 1 4 2 8
+Sample Output:Second largest element of the array is 5
+*/
+#include <stdio.h>
+
+int sec_largest(int arr[], int size){
+    int first=arr[0];//the first variable to store first element of array
+    int second=arr[1],i;//to store second element of array
+    for(i=0;i<size;i++){
+        if(arr[i]>first){//if the value is greater than first element
+            second=first;//the second elemnet stores first element
+            first=arr[i];//the first element stores value
+        }
+        if(arr[i]<first&&arr[i]>second){//also if the value greater than first(i.e 1st largest element)and less than second(i.e third largest element)
+            second=arr[i];//then the second element store the exact second largest value
+        }
+    }
+    return second;//return the result
+}
+
+int main()
+{
+    int size, ret,i;
+    
+    //Read size from the user
+    printf("Enter the size of the array :");
+    scanf("%d", &size);
+    
+    int arr[size];
+    
+    //Read elements into the array
+    for(i=0;i<size;i++){
+        scanf("%d",&arr[i]);
+    }
+    
+    //funtion call
+    ret = sec_largest(arr, size);
+    
+    printf("Second largest element of the array is %d\n", ret);
+}
