@@ -1,0 +1,37 @@
+/*
+Name: Gayathri.k
+Date: 18/10/2023
+Description: WAP to generate fibbonacci numbers using recursion
+Sample Input:Enter the value of N : 5
+Sample Output: Result :0 1 1 2 3 5
+*/
+#include <stdio.h>
+
+void positive_fibonacci(int limit, int first, int second, int next){
+     next=first+second; //to get the output for third number
+     if(next<=limit) //cond to check the limit
+        {
+            printf("%d ",next); //print the third output first for print 0 1 1
+            first = second; //swapping to get next number eg:0=1 1=1(0+1)
+            second = next;//1=(0+1)1
+            next= first + second;//1=(1+1)2
+            if(next<=limit)//cond to check the limit and print
+            positive_fibonacci(limit,first,second,next);//recursion
+        }
+        
+}
+
+int main()
+{
+    int limit,first=0,second=1;
+    
+    printf("Enter the limit : ");
+    scanf("%d", &limit);
+    if(limit>=0){
+    printf("%d %d ",first,second);//to print the first two numbers in output
+    positive_fibonacci(limit, 0, 1, 0);
+    }
+    else{
+        printf("Invalid Input");
+    }
+}
