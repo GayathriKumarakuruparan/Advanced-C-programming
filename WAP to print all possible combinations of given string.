@@ -1,0 +1,90 @@
+/*
+Name: Gayathri.k
+Date: 06/11/2023
+Description:WAP to print all possible combinations of given string.
+Sample Input: abc
+Sample Output:abc
+              acb
+              bac
+              bca
+              cab
+              cba
+*/
+#include<stdio.h> 
+void combination(char *str,int start,int end){
+    char temp;
+    int i,j,k=0,err=0;
+    static int print=0;//presentation purpose(to avoid repeated sentence)
+    //loop to chech whether the string is valid or not(i.e abc not abb)
+    
+    if(print==0){//to avoid repetition
+    for(j=0;j<=end;j++)
+    {
+        for(k=0;k<=end;k++)
+        {
+            if(j!=k)
+            {
+                if(str[j]==str[k])
+                {
+                    err=1;
+                }
+            }
+        }
+    }
+    }
+    //if it is valid
+    if(err==0){
+        //to print the first line when the output is shown
+        if(print==0){
+            printf("All possible combinations of given string : ");
+        }
+        //if the start and end id equal then print the result
+    if(start==end){
+        printf("%s\n",str);
+    }
+    else{
+        //loop for output
+        for(i=start;i<=end;i++){
+            //swapping for 1-1.2-2
+            temp=str[start];
+            str[start]=str[i];
+            str[i]=temp;
+            print++;
+            //function call to repeat the process
+            combination(str,start+1,end);
+            //this swapping is to print 1-2 2-3 etc
+            temp=str[start];
+            str[start]=str[i];
+            str[i]=temp;
+        }
+    }
+    }
+    //if it's not valid
+    else
+    printf("Error: please enter distinct characters.");
+    
+}
+//func to collect the count (i.e)length of the string
+int my_strlen(char *str)
+{
+    int i,count=0;
+    while(str[i]!='\0'){
+        count++;
+        i++;
+    }
+    return count;
+}
+
+int main()
+
+{
+        char str[100];
+        int n;
+        int res;
+        printf("Enter a string: ");
+        scanf("%100[^\n]",str);    
+        n = my_strlen(str);
+        combination(str,0,n-1);  
+        
+        return 0;
+}
