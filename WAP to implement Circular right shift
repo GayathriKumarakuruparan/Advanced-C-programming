@@ -1,0 +1,48 @@
+/*
+Name: Gayathri.k
+Date: 5/10/2023
+Description: WAP to implement Circular right shift
+Sample Input:Enter num: 12
+                Enter n : 3
+Sample Output: Result : 10000000 00000000 00000000 00000001
+*/
+#include <stdio.h>
+
+int circular_right(int num, int n){
+    int mask=(1<<n)-1;
+    int pos=32-n;
+    int num1=num>>n;//first right shift the bit to view the clear bit
+    int mask2=mask<<pos;//to get the mask value to clear the bit
+    int res=~(mask2);//complement the mask value to clear bit
+    int value1=num1&res;////the n bit that cleared
+    int get=num&mask;//to get the getbit
+    int value2=get<<pos;//left shift the value to merge 
+    int ret=value1|value2;//to merge
+    for(int i=31;i>=0;i--){//loop for print binary value
+        if(ret&(1<<i))//if it is set value print 1
+        printf("1 ");
+        else//if it is not a set value print 0
+        printf("0 ");
+    }
+    
+}
+int print_bits(int ret){
+    
+    return ret;
+}
+
+int main()
+{
+    int num, n, ret;
+    
+    //printf("Enter the num:");
+    scanf("%d", &num);
+    
+    //printf("Enter n:");
+    scanf("%d", &n);
+    printf("Result in Binary: ");
+    
+    ret = circular_right(num, n);
+    
+    print_bits(ret);
+}
