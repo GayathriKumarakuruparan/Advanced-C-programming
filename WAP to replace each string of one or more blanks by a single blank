@@ -1,0 +1,39 @@
+# Advanced-C-programming
+/*
+Name: Gayathri.k
+Date: 27/10/2023
+Description: WAP to replace each string of one or more blanks by a single blank
+Sample Input: welcome    to     emertxe
+Sample Output:welcome to emertxe
+*/
+#include <stdio.h>
+void replace_blank(char str[]){
+    int i=0,j;
+    while(str[i]!='\0'){//to check the character until end
+        if((str[i]==' ')||(str[i]=='\t')){//check whether the character is space or not
+           if((str[i+1]==' ')||(str[i+1]=='\t')){//check whether the next character to the character is space or not
+               j=i;//we should start the swapping from the current char
+               while(str[j]!='\0'){//to swap all character until end
+               //swapping all character
+                   str[j]=str[j+1];
+                   j++;//inc of j for inner loop
+               }
+               i=i-1;/*again bring the i value to the current character to get one space.
+                     (if it start from next charcter means then it look like this 
+                     (i.e)hi....hi->hi..hi(consider . as space)*/
+           }
+        }
+        i++;//inc of i for outer loop
+    }
+}
+int main()
+{
+    char str[100];
+    
+   // printf("Enter the string with more spaces in between two words\n");
+    scanf("%[^\n]", str);
+    
+    replace_blank(str);
+    
+    printf("%s\n", str);
+}
