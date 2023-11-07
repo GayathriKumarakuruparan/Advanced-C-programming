@@ -1,0 +1,84 @@
+/*
+Name: Gayathri.k
+Date: 31/10/2023
+Description: Generate consecutive NRPS of length n using k distinct character
+Sample Input: abc
+Sample Output:Possible NRPS is abcbca
+*/
+#include <stdio.h>
+void nrps(char *str, int C, int N){
+    int i,j=0,count=C,k=0,flag=0,err=0,check=0;
+    //loop to find whether the given string is valid or not(i.e aba -> notvalid)
+    for(int k=0;k<C;k++)
+    {
+        for(int l=0;l<C;l++)
+        {
+            if(k!=l)
+            {
+              if(str[k]==str[l])
+              {
+                  err=1;
+              }
+            }
+        }
+    }
+    //if it is valid
+    if(err==0)
+    {
+   //loop to get NRPS
+    for(i=0;i<N;i++)
+    {
+        if(count!=N)//to get the count string in result
+        {
+            str[i+C]=str[++j];//to get next next string 
+            count++;
+            flag++;//to chech the collecting string is complete or not (every Cth time it will empty)
+          if(flag==C)
+          {
+            str[i+C]=str[k];//in that time we start from the frist element of the current string
+            k=k+i+1;
+            flag=0;//then again make it as 0 to get next empty string
+          }
+        }
+    }
+    //loop to check whether the created NRPS is NRPS or NOT.
+    for(i=0;i<C;i++)
+    {
+        for(j=C;j<N;j++)
+        {
+            if(str[i]==str[j])
+            {
+                check=1;
+            }
+            else{
+                check=0;
+            }
+        }
+    }
+    if(check==0)//if it is nrps
+    {
+    printf("Possible NRPS is %s",str);//result to print
+    }
+    }
+    //if it is invalid
+    else
+    printf("ERROR : Enter distinct charatcers");
+ 
+    
+}
+
+int main()
+{
+    int C,N;
+    char str[N];
+    //read the input from the user
+    printf("Enter the number characters C : ");
+    scanf("%d",&C);
+    printf("Enter the number characters N : ");
+    scanf("%d",&N);
+    printf("Enter %d distinct character : ",C);
+    scanf(" %[^\n]",str);
+
+    //function call to pass input to the function
+    nrps(str,C,N);
+}
