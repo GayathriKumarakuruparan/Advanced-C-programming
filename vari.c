@@ -1,0 +1,60 @@
+/*
+Name: Gayathri.k
+Date: 9/11/23
+Description: Variance calculation with dynamic arrays
+Sample Input: enter the numb:3
+              1
+              2
+              3
+Sample Output:variance is 0.000000
+*/
+#include<stdio.h>
+#include<stdlib.h>
+void varience(int *arr,int num){
+    int j,sum=0,k,l,D=0,total=0;
+
+    //loop to get total sum of array
+
+    for(j=0;j<num;j++)
+    {
+        sum+=arr[j];
+    }
+
+    float mean = sum / num;           //to store mean of first array
+       
+    //loop to get diff of mean and values of array element and square of each element
+
+    for(k=0;k<num;k++){
+        D=arr[k] - mean;             //diff of mean and element
+        arr[k]=D*D;                  //get the square of the diff and store it in same array
+    }
+
+    //loop to get the total sum of changed array
+
+    for(l=0;l<num;l++){
+        total+=arr[l];
+    }
+    float mean2 = total / num;      //final mean value to get result 
+    printf("variance is %f",mean2);
+}
+
+int main()
+{
+    int num;
+    printf("Enter the number:");
+    scanf("%d",&num);
+    int arr[num];                    //array store in number of input
+    int *ptr=malloc(num*sizeof(int));//allocate the memory in heap segment
+
+    //loop to read array
+
+    for(int i=0;i<num;i++){
+        printf("[%d]->",i);
+        scanf("%d",&arr[i]);
+    }
+
+    //call the function
+
+    varience(arr,num);
+}
+
