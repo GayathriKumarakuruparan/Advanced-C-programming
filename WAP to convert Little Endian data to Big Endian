@@ -1,0 +1,39 @@
+/*
+Name: Gayathri.k
+Date: 9/11/23
+Description: WAP to convert Little Endian data to Big Endian
+Sample Input: size:2 num:c0
+Sample Output: After conversion C000
+*/
+#include<stdio.h>
+int main()
+{
+    int size,num;
+    char temp;
+    //printf("enter the size:");
+    scanf("%d",&size);
+    //printf("enter the number");
+    if(size==2){
+    short int num;
+    scanf("%hx",&num);
+    }
+    if(size==4){
+    int num;
+    scanf("%x",&num);
+    }
+    //store it in pointer address to swaping address wise
+    char *ptr=(char *)&num;
+    
+    //swapping to get the value like big endians
+    for(int i=0;i<(size/2);i++){
+    temp=ptr[i];
+    ptr[i]=ptr[size-i-1];
+    ptr[size-i-1]=temp;
+    }
+    if(size==2)
+    printf("After conversion %hX",num);
+    else
+    printf("After conversion %X",num);
+
+}
+
