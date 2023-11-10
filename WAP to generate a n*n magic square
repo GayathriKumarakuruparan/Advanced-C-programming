@@ -1,0 +1,60 @@
+*
+Name: Gayathri.k
+Date: 9/11/23
+Description: WAP to generate a n*n magic square
+Sample Input: 3
+Sample Output:8   1   6
+              3   5   7
+              4   9   2
+
+*/
+#include<stdio.h>
+#include<stdlib.h>
+void magic(int **ptr, int size)
+{
+		int i,j,row,col,l,m;
+		row = 0;
+		col = size/2;
+		//Running the loop to set values of the square matrix//
+		for(i = 1; i <= size * size; i++)
+		{
+				ptr[row][col] = i;
+				l = row--;
+				m = col++;
+				if(row < 0)
+						row = size - 1;
+				if(col > size - 1)
+						col = 0;
+				if(ptr[row][col] != 0)
+				{
+						col = m;
+						row = l + 1;
+				}
+		}
+		//Running the loop to print the values//
+		for(i = 0; i < size; i++)
+		{
+		    for(j = 0; j < size; j++)
+			{
+			  printf("%d ", ptr[i][j]);
+			}
+			  printf("\n");
+		}
+}
+int main()
+{
+    int n,i;
+    printf("enter the number:");
+    scanf("%d",&n);
+    if(n%2!=0){
+    int **p;
+    p=calloc(n,sizeof(int*));
+    for(i=0;i<n;i++){
+        p[i]=calloc(n,sizeof(int));
+    }
+    magic(p,n);
+    }
+    else
+	printf("Error : Please enter only positive odd numbers\n");
+}
+
