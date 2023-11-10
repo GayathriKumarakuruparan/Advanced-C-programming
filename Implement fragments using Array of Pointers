@@ -1,0 +1,116 @@
+/*
+Name: Gayathri.k
+Date: 10/11/23
+Description: Implement fragments using Array of Pointers
+Sample Input:   Enter no.of rows : 3
+                Enter no of columns in row[0] : 4
+                Enter no of columns in row[1] : 3
+                Enter no of columns in row[2] : 5
+                Enter 4 values for row[0] : 1 2 3 4
+                Enter 3 values for row[1] : 2 5 9
+                Enter 5 values for row[2] : 1 3 2 4 1
+Sample Output:  Before sorting output is:
+
+                1.000000 2.000000 3.000000 4.000000 2.500000
+                
+                2.000000 5.000000 9.000000 5.333333
+                
+                1.000000 3.000000 2.000000 4.000000 1.000000 2.200000
+                
+                After sorting output is:
+                
+                1.000000 3.000000 2.000000 4.000000 1.000000 2.200000
+                
+                1.000000 2.000000 3.000000 4.000000 2.500000
+                
+                2.000000 5.000000 9.000000 5.333333
+*/
+#include<stdio.h>
+#include<stdlib.h>
+void frag(float **p,int row,int *col){
+    int i,j;
+    float avg=0;
+    float arr[row];
+    for(i=0;i<row;i++){
+        float sum=0;
+        for(j=0;j<col[i];j++){
+            sum+=p[i][j];
+        }
+        avg=sum/j;
+        p[i][j]=avg;
+    }
+
+    //print the output before sorting
+    printf("Before sorting output is:\n");
+    for(i=0;i<row;i++){
+        for(j=0;j<=col[i];j++){
+            printf("%f\t",p[i][j]);
+        }
+        printf("\n");
+    }
+
+    //sorting...
+    for(i=0;i<row-1;i++)
+    {
+        for(j=0;j<(row-i-1);j++)
+        {
+            if((p[i][col[i]])<(p[j][col[j]]))
+            {
+                float *temp=p[j];
+                p[j]=p[j+1];
+                p[j+1]=temp;
+                int temp2=col[j];
+                col[j]=col[j+1];
+                col[j+1]=temp2;
+            }
+        }
+    }
+
+    //after swapping
+    printf("After sorting output is:\n");
+    for(i=0;i<row;i++){
+        for(j=0;j<=col[i];j++){
+            printf("%f\t",p[i][j]);
+        }
+        printf("\n");
+    }
+
+
+}
+
+
+
+int main()
+{
+    int row,i,j,k,l;
+
+    scanf("%d",&row);
+    float *ptr[row];
+    int col[row];
+
+    //read the col
+
+    for(i=0;i<row;i++)
+    {
+        scanf("%d",&col[i]);
+    }
+
+    //memory allocation
+    for(j=0;j<row;j++)
+    {
+        ptr[j]=malloc((col[j]+1)*sizeof(float));
+    }
+
+    //read the array element
+    for(k=0;k<row;k++)
+    {
+        for(l=0;l<col[k];l++)
+        {
+            scanf("%f",&ptr[k][l]);
+        }
+        printf("\n");
+    }
+    frag(ptr,row,col);
+}
+
+
