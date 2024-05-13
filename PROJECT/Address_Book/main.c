@@ -1,3 +1,7 @@
+/*
+Name: GAYATHRI K
+Date: 13 April 2024
+*/
 #include <stdio.h>
 #include <stdio_ext.h>
 #include <stdlib.h>
