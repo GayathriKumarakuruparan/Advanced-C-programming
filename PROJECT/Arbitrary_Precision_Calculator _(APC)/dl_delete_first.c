@@ -1,9 +1,5 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
 */
 #include"apc.h"
 int dl_delete_list(Dlist **head,Dlist **tail)	
