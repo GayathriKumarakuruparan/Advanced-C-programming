@@ -1,4 +1,10 @@
-//#include"APC.h"
+/**************************************************************************************************************************************************************
+*NAME           : GAYATHRI K
+*DATE           : MAY 18 2024
+*Title		: main function(Driver function)
+*Description	: This function is used as the driver function for the all the functions
+***************************************************************************************************************************************************************/
+#include "apc.h"
 #include "apc.h"
 
 int main(void)
