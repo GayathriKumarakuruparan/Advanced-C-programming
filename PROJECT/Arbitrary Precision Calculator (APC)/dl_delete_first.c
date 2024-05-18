@@ -1,9 +1,6 @@
 /*
-Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+*NAME                 : GAYATHRI K
+*DATE                 : MAY 18 2024
 */
 #include"apc.h"
 int dl_delete_list(Dlist **head,Dlist **tail)	
