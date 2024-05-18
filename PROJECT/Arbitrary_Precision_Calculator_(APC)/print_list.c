@@ -1,9 +1,5 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
 */
 #include"apc.h"
 void print_list(Dlist *head)
