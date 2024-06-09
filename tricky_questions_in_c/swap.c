@@ -1,9 +1,8 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: july 9 2024
+Description: fastest way to swap
+
 */
 #include<stdio.h>
 int main()
