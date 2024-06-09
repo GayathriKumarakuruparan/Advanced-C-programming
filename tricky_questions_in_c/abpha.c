@@ -1,9 +1,9 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: 9 july 2024
+Description: wap to print the string in alphabetical order, if the character is not existing in the string, replace it with (.)
+Sample input: str1 = "TCP is a transport"
+Sample output: "a.c.....i....nop.rst......"
 */
 #include<stdio.h>
 #include<string.h>
