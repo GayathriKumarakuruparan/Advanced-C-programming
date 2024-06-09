@@ -1,9 +1,8 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: july 9 2024
+Description: wap to find the size of variable withour using sizeof
+
 */
 #include<stdio.h>
 #define size_of(x) ((char*)(&x+1)-(char*)(&x))
