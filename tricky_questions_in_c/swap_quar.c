@@ -1,9 +1,11 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: july 9 2024
+Description: WAP to swap quardrant on array
+Sample input: 1 2
+              3 4
+Sample output:4 3
+              1 2
 */
 #include<stdio.h>
 #include<stdlib.h>
