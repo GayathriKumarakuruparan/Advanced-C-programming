@@ -1,9 +1,9 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: july 9 2024
+Description: WAP to find the number of substring in the order string
+Sample input: str1="abcabcab" sub="abc"
+Sample output: number of substring is 2(abc appreared twice)
 */
 #include<stdio.h>
 #include<string.h>
