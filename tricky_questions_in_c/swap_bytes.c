@@ -1,9 +1,9 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: july 9 2024
+Description: swap the 2 bit from msb and add it in lsb
+Sample input:0xF1234560
+Sample output:0X31234563
 */
 #include<stdio.h>
 int main()
