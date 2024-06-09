@@ -1,9 +1,7 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: july 9 2024
+Description:simple mul using bitwise
 */
 #include<stdio.h>
 int main()
