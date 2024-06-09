@@ -1,9 +1,9 @@
 /*
 Name: Gayathri.k
-Date:
-Description:
-Sample input:
-Sample output:
+Date: july 9 2024
+Description: wap to round the number to the next power of 2
+Sample input: num =17
+Sample output: the next power of 2 is 32
 */
 #include<stdio.h>
 int main()
