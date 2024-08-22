@@ -9,20 +9,20 @@ Sample output: number of substring is 2(abc appreared twice)
 #include<string.h>
 int sub_string(char *str,char *sub)
 {
-    int l1,l2,i,j,count,count1;
+    int l1,l2,i,j,count=0,count1=0;
     l1=strlen(str);
     l2=strlen(sub);
     for(i=0;i<l1;)
     {
 	j=0;
 	count=0;
-	while(str[i]==sub[j])
+	while(str[i]==sub[j] &&  str[i]!='\0')
 	{
 	    count++;
 	    i++;
 	    j++;
 	}
-	if(count==l2)
+	if((count==l2)
 	{
 	    count1++;
 	    count=0;
